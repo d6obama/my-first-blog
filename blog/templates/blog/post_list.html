@@ -5,21 +5,13 @@
     <title>KhanhBlog</title>
 </head>
 <body>
-<div>
-            <h1><a href="/">Khanh Blog</a></h1>
-        </div>
-
-        <div>
-            <p>published: 3/8/2019, 11:38Pm</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Đây là dự án đầu tiên cửa tôi về viết 1 trang web, nó có vẻ khá khó khăn ban đầu
-            nhưng giờ đây đã đỡ hơn rất nhiều</p>
-        </div>
-
-        <div>
-            <p>published: 3/8/2019, 11:38Pm</p>
-            <h2><a href="">My second post</a></h2>
-            <p> Đây chỉ là thử nghiệm và sẽ mong tốt hơn nữa</p>
-        </div>
+{{posts}}
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
 </body>
 </html>
